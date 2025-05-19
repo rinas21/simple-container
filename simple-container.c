@@ -44,6 +44,11 @@ int child_func(void *arg) {
 
     // Execute a shell inside the container
     char *const args[] = { "/bin/sh", NULL };
+    
+    // Launch the container's init process (/bin/sh)
+    // This replaces the current process image with the shell
+    // It's essential because after setting up namespaces, chroot, etc.,
+    // we want to execute the actual container workload
     execv(args[0], args);
 
     // If execv fails, print an error message and exit
@@ -58,7 +63,7 @@ int main() {
     // CLONE_NEWUTS: Isolate hostname and domain name
     // CLONE_NEWPID: Isolate process IDs (PID namespace)
     // CLONE_NEWNS: Isolate mount points (mount namespace)
-   // CLONE_NEWNET: network namespace 
+    // CLONE_NEWNET: Isolate network (netwrok namespace)
     // SIGCHLD: Ensure the parent process is notified when the child exits
     int flags = CLONE_NEWUTS | CLONE_NEWPID | CLONE_NEWNS | CLONE_NEWUTS | SIGCHLD | CLONE_NEWNET;
 
