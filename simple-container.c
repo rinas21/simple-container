@@ -38,9 +38,9 @@ int child_func(void *arg) {
     clearenv();
 
     // Set minimal environment variables for the container
-    setenv("PATH", "/bin:/sbin:/usr/bin:/usr/sbin", 1); // Set executable search paths
-    setenv("HOME", "/root", 1);                         // Set home directory
-    setenv("TERM", "xterm", 1);                         // Set terminal type
+    setenv("PATH", "/bin", 1); // Set executable search paths
+    setenv("HOME", "/", 1);                         // Set home directory
+    setenv("TERM", "/bin/sh", 1);                         // Set terminal type
 
     // Execute a shell inside the container
     char *const args[] = { "/bin/sh", NULL };
