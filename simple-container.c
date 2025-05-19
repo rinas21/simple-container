@@ -13,7 +13,7 @@ char child_stack[STACK_SIZE];   // Allocate memory for the child process stack
 int child_func(void *arg) {
     (void)arg;  // Suppress unused warning if not using arg
 
-    printf("=> Inside container!\n");
+    printf("=> Inside demo container!\n");
 
     // Step 1: Make the mount namespace private
     if (mount(NULL, "/", NULL, MS_REC | MS_PRIVATE, NULL) != 0) {
@@ -57,7 +57,7 @@ int child_func(void *arg) {
 }
 
 int main() {
-    printf("=> Starting container\n");
+    printf("=> Starting the container lanuncher\n");
 
     // Define the namespaces to isolate
     // CLONE_NEWUTS: Isolate hostname and domain name
