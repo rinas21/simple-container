@@ -1,10 +1,10 @@
 
-# Simple container implementation
+# Simple Container Implementation
 
 ## Tested environment
 Ubuntu 2024.04
 
-#### setup viertual eather nets and peer them in the host machine
+#### Set up viertual eather nets and peer them in the host machine
 ``` console
 sudo ip link add veth0 type veth peer name veth1
 ```
@@ -12,6 +12,15 @@ sudo ip link add veth0 type veth peer name veth1
 ```console
 sudo ip link set veth1 netns 1678
 ```
-#### Add IP to the veth created in the host machine and the container. 
+#### Add IPs to the virtual ethernet devices created in the host machine and the container. 
 
-#### Use ifconfig command to set the ip in the container.
+#### Use ifconfig command to set the IPs in the container.
+In the host machine
+```console
+ifconfig  veth0 192.168.1.1
+```
+In the container
+```console
+ifconfig  veth1 192.168.1.2
+```
+
