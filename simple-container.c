@@ -39,8 +39,8 @@ int child_func(void *arg) {
 
     // Set minimal environment variables for the container
     setenv("PATH", "/bin", 1); // Set executable search paths
-    setenv("HOME", "/", 1);                         // Set home directory
-    setenv("TERM", "/bin/sh", 1);                         // Set terminal type
+    setenv("HOME", "/", 1);  // Set home directory
+    setenv("TERM", "/bin/sh", 1);  // Set terminal type
 
     // Execute a shell inside the container
     char *const args[] = { "/bin/sh", NULL };
@@ -81,4 +81,3 @@ int main() {
     printf("=> Container exited\n");
     return 0;
 }
-
