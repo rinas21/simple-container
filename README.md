@@ -1,10 +1,9 @@
-
 # Simple Container Implementation
 
 ## Tested environment
 Ubuntu 2024.04
 
-#### Set up viertual eather nets and peer them in the host machine
+#### Set up virtual ethernet nets and peer them in the host machine
 ``` console
 sudo ip link add veth0 type veth peer name veth1
 ```
