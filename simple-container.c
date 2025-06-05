@@ -5,6 +5,8 @@
 #include <unistd.h>     // For sethostname(), chroot(), chdir(), execv()
 #include <sys/mount.h>  // For mount()
 #include <signal.h>     // For SIGCHLD
+#include <sys/types.h> // For pid_t
+#include <sys/wait.h>  // For waitpid()
 
 #define STACK_SIZE (1024 * 1024) // Define the stack size for the child process
 char child_stack[STACK_SIZE];   // Allocate memory for the child process stack
